@@ -1,5 +1,10 @@
 FROM python:3.6.3
 
+# TODO: cleanup here?
+RUN apt-get update && \
+  apt-get install -y sudo
+
+
 RUN pip install --quiet qiskit jupyter
 
 ENV gid=1000 uid=1000
