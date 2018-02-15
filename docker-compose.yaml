@@ -16,4 +16,10 @@ services:
   python:
     image: helionagamachi/qiskit
     volumes:
-      - ./code:/home/developer/app/code
+      - ./code:/home/developer/app
+      - requirements:/usr/local/lib/python3.6/site-packages
+    env_file: my.env
+    command:
+      - bash
+volumes:
+  requirements:
