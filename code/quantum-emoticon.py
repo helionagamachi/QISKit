@@ -1,8 +1,10 @@
 from qiskit import QuantumProgram
 import Qconfig
 
+import sys
+
 qp = QuantumProgram()
-qp.set_api(Qconfig.APItoken, Qconfig.config["url"]) # set the APIToken and API url
+qp.set_api(Qconfig.APItoken, Qconfig.config['url']) # set the APIToken and API url
 
 # set up registers and program
 qr = qp.create_quantum_register('qr', 16)
@@ -26,11 +28,19 @@ qc.x(qr[13])
 
 # measure
 for j in range(16):
-    qc.measure(qr[j], cr[j])
+  qc.measure(qr[j], cr[j])
+
+backend = 'ibmqx_qasm_simulator'
+
+if len(sys.argv) > 1:
+  backend = sys.argv[1]
 
 # run and get results
 print('Executing..')
-results = qp.execute(["smiley_writer"], backend='ibmqx_qasm_simulator', shots=1024)
+results = qp.execute(['smiley_writer'], backend, shots=1024)
+
 
 print('waiting for results')
-stats = results.get_counts("smiley_writer")
+stats = results.get_counts('smiley_writer')
+
+print(stats)

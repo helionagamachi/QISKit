@@ -14,11 +14,13 @@
 go to the url pointed in the terminal
 
 
-### For the python run time:
+### For the python runtime:
 
 Copy the `my.env.example` file into `my.env` and put up the IBMQE key there
 
 
-`docker-compose up python`
+`docker-compose run --rm python`
 
-A new container will startup with a bash shell 
+A new container will startup with a bash shell
+
+Once there `sudo pip install -r requirements.txt`
