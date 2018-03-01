@@ -2,7 +2,7 @@ FROM python:3.6.3
 
 # TODO: cleanup here?
 RUN apt-get update && \
-  apt-get install -y sudo
+  apt-get install -y sudo poppler-utils texlive-latex-base texlive-latex-extra
 
 
 RUN pip install --quiet qiskit jupyter
